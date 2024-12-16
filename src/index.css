@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Syne:wght@400..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  :root {
+    --loading-bg-color: #f6f7f8;
+    --loading-gradient-color: linear-gradient(to tight, #9ed7ff, #fff, #9ed7ff);
+  }
+}
+
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  animation: fadeIn 1.5s linear;
+}
+
+@layer base {
+  body {
+    @apply overflow-x-hidden;
+  }
+  .recentEntry {
+    @apply flex items-start gap-[10px] p-[10px] pr-[40px] rounded-[50px] text-[#282828] cursor-pointer hover:bg-[#e2e6eb] dark:hover:bg-[#26364b] dark:text-[#c4c4c4];
+  }
+  .bottomItem {
+    @apply pr-[10px] cursor-pointer flex items-center gap-2 dark:text-[#72869f];
+  }
+}
+
+.gradientText {
+  background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.chatScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.loader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.loader hr {
+  border-radius: 4px;
+  border: none;
+  background-size: 800px 50px;
+  height: 20px;
+
+  animation: loader 3s infinite linear;
+}
+
+@keyframes loader {
+  0% {
+    background-position: -800px 0px;
+  }
+  100% {
+    background-position: 800px 0px;
+  }
+}
+
+body.dark::-webkit-scrollbar {
+  width: 7px;
+}
+
+body.dark::-webkit-scrollbar-thumb {
+  background-color: #182636;
+}
+
+@media (prefers-color-scheme: dark) {
+  .loader hr {
+    background-color: #1243747d;
+    background: linear-gradient(to right, #2a5d82, #2465a77d, #2a5d82);
+  }
+}
+@media (prefers-color-scheme: light) {
+  .loader hr {
+    background-color: #f6f7f8;
+    background: linear-gradient(to right, #9ed7ff, #fff, #9ed7ff);
+  }
+}
