@@ -94,7 +94,7 @@ Contributions are welcome! Follow these steps to contribute:
 ## 💬 Feedback
 
 > [!NOTE]  
-> The app is still under development. Voice and image <br> input features are placeholders for now. We would love your feedback and suggestions!
+> The app is still under development. Voice and image input features are placeholders for now.<br> We would love your feedback and suggestions!
 
 Feel free to submit issues or reach out via [GitHub Issues](https://github.com/psparwez/Gemini-clone/issues).
 
