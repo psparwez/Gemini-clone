@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 
 import { FaClockRotateLeft, FaRegCircleQuestion } from "react-icons/fa6";
-import { MdOutlineMenu, MdSettings } from "react-icons/md";
+import { MdOutlineMenu } from "react-icons/md";
 import { HiPlus } from "react-icons/hi2";
 import { FiMessageSquare } from "react-icons/fi";
 import { Context } from "../context/Context";
+import { LuSettings } from "react-icons/lu";
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(false);
@@ -82,22 +83,17 @@ const Sidebar = () => {
           <div
             key={index}
             className={`bottomItem  recentEntry ${
-              !extended && "flex  items-center p-4 justify-center group"
+              !extended &&
+              "flex  items-center h-11 w-11 rounded-full justify-center group"
             }`}
           >
             <span>{item.icon}</span>
-            {extended ? (
-              <p className={`${extended && "pointer-events-none "}`}>
-                {item.label}
-              </p>
-            ) : (
-              <p className={`${!extended && "pointer-events-none hidden"}`}>
-                {item.label}
-              </p>
-            )}
+            <p className={`inline-block ${!extended && "hidden"}`}>
+              {item.label}
+            </p>
 
             {/*  tooltips  */}
-            <div className=" group-hover:opacity-100 group-hover:left-[100px] transition-all duration-300 ease-in-out  opacity-0 absolute left-[80px] text-left flex items-start justify-start text-sm py-1 px-2 rounded-tr-lg rounded-br-lg bg-[#182636] shadow-lg  ring-1 ring-inset ring-gray-800  before:absolute before:content-[''] before:h-5 rounded-md before:w-5 before:bg-[#182636] before:-left-1.5 before:rotate-45 z-10 before:-z-10 before:top-1/2 before:-translate-y-1/2 ">
+            <div className=" group-hover:opacity-100 group-hover:left-[100px] transition-all duration-300 ease-in-out  opacity-0 absolute left-[80px] text-left flex items-start justify-start text-sm py-1 px-2 rounded-tr-lg rounded-br-lg bg-[#182636] shadow-lg    before:absolute before:content-[''] before:h-5 rounded-md before:w-5 before:bg-[#182636] before:-left-1.5 before:rotate-45 z-10 before:-z-10 before:top-1/2 before:-translate-y-1/2 pointer-events-none">
               {item.label}
             </div>
           </div>
@@ -110,15 +106,15 @@ const Sidebar = () => {
 const bottomItems = [
   {
     label: "Help",
-    icon: <FaRegCircleQuestion className="text-[1.2rem]" />,
+    icon: <FaRegCircleQuestion />,
   },
   {
     label: "Activity",
-    icon: <FaClockRotateLeft className="text-[1.2rem]" />,
+    icon: <FaClockRotateLeft size={15.5} />,
   },
   {
     label: "Settings",
-    icon: <MdSettings className="text-[1.4rem]" />,
+    icon: <LuSettings />,
   },
 ];
 
